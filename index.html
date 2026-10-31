@@ -12,7 +12,7 @@
 <meta property="og:title" content="المجد لخدمات التأمين | تأمين المركبات في الإمارات">
 <meta property="og:description" content="جميع شركات التأمين في مكان واحد. اطلب عرض سعرك عبر واتساب خلال دقائق.">
 <meta property="og:url" content="https://almajd-insurance.github.io/">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"المجد لخدمات التأمين","alternateName":"Al Majd Insurance Services FZE","url":"https://almajd-insurance.github.io/","telephone":"+971521968168","email":"almajdinsurance8@gmail.com","description":"تأمين شامل وضد الغير للمركبات في الإمارات.","address":{"@type":"PostalAddress","streetAddress":"Emirates Islamic Bank Building, Office 109, Al Qusais","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":"AE"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"المجد لخدمات التأمين","alternateName":"Al Majd Insurance Services FZE","url":"https://almajd-insurance.github.io/","telephone":"+971521968168","email":"almajdinsurance8@gmail.com","description":"تأمين شامل وضد الغير للمركبات في الإمارات.","address":{"@type":"PostalAddress","streetAddress":"Emirates Islamic Bank Building, Office 109, Al Qusais","addressLocality":"Dubai","addressCountry":"AE"},"areaServed":"AE","sameAs":["https://www.instagram.com/car_insurance_uae_almajd","https://www.facebook.com/share/1CDptNXZY7/","https://x.com/MohmadAsaad16"]}</script>
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
 <style>
@@ -102,6 +102,10 @@ footer{margin-top:50px;background:var(--brand);color:#fff;padding:26px 0 90px;te
 .steps li:before{content:counter(s);display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;margin-bottom:8px}
 .steps small{display:block;color:var(--mute);margin-top:4px}
 .addr{color:var(--mute);margin:0 0 14px}
+.social{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.social a{flex:1 1 140px;text-align:center;text-decoration:none;font-weight:800;border-radius:14px;padding:12px 8px;border:1.5px solid var(--line);color:var(--ink);background:#fff}
+.social a:hover{border-color:var(--gold)}
+.social a.sh{background:var(--brand);border-color:var(--brand);color:#fff}
 </style>
 </head>
 <body>
@@ -231,6 +235,12 @@ footer{margin-top:50px;background:var(--brand);color:#fff;padding:26px 0 90px;te
     <a href="tel:+971521968168" target="_blank" rel="noopener">اتصال<small dir="ltr">05 219 68168</small></a>
     <a id="copy" href="#">نسخ الرقم<small dir="ltr">0521968168</small></a>
   </div>
+  <div class="social">
+    <a href="https://www.instagram.com/car_insurance_uae_almajd" target="_blank" rel="noopener">إنستغرام</a>
+    <a href="https://www.facebook.com/share/1CDptNXZY7/" target="_blank" rel="noopener">فيسبوك</a>
+    <a href="https://x.com/MohmadAsaad16" target="_blank" rel="noopener">X (تويتر)</a>
+    <a id="share" class="sh" href="#">مشاركة الرقم</a>
+  </div>
 </div></section>
 
 <footer><div class="w">المجد لخدمات التأمين م.م.ح — Al Majd Insurance Services FZE<br>مرخص لدى هيئة المنطقة الحرة (FZE) إمارة الشارقة برقم رخصة 4426452<br>© المجد لخدمات التأمين</div></footer>
@@ -281,6 +291,14 @@ $("send").onclick = function(e){
     "القيمة التقريبية: " + $("value").value,
     "المستندات التي سأرسلها: " + CASES[cs].d.join("، ")
   ].join("\n"));
+};
+$("share").onclick = function(e){
+  e.preventDefault();
+  var txt = "المجد لخدمات التأمين - تأمين المركبات في الإمارات\nللتواصل: 0521968168\nhttps://almajd-insurance.github.io/";
+  if(navigator.share){ navigator.share({title:"المجد لخدمات التأمين", text:txt}).catch(function(){}); return }
+  var a = document.createElement("textarea"); a.value = txt; document.body.appendChild(a); a.select();
+  try{ document.execCommand("copy"); $("share").textContent = "تم نسخ الرقم والرابط ✓"; }catch(x){}
+  document.body.removeChild(a);
 };
 </script>
 </body>
